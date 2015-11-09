@@ -8,25 +8,26 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   </head>
 
   <body>
   	
-  	<div class="container">
+  
 
 	  	<h1> SIMON SAYS </h1>
-
-	  	<div id="red"></div>
-	  	<div id="blue"></div>
-	  	<div id="yellow"></div>
-	  	<div id="green"></div>
-	  	
+      <div id="board">
+  	  	<div id="red" class="color"></div>
+  	  	<div id="blue" class="color"></div>
+  	  	<div id="yellow" class="color"></div>
+  	  	<div id="green" class="color"></div>
+        <div id="gameOver"><h2>GAME</h2><h2>OVER</h2></div>
+	  	</div>
 	  	<div id="buttonWrapper">
-	  	<button id="simonButton" class="btn btn-default btn-lg">SIMON</button>
+	  	<button id="startButton" class="btn btn-default btn-lg">START</button>
 	  	</div>
 	  	
-  	</div>
+
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
