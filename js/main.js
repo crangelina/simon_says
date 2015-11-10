@@ -2,7 +2,6 @@
 //       if user is correct then computer repeats list and adds one
 //     if user is wrong the game ends
 
-
 var Game = {
   started: false,
 
@@ -31,8 +30,15 @@ var Game = {
     Game.clickCounter= 0;
     Game.computerList= [];
     Game.simon();
-    Game.touchDown();
-    Game.touchUp();
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      Game.touchDown();
+      Game.touchUp();
+    } else {
+      Game.mouseDown();
+      Game.mouseUp();
+    }
+    
   },
 
   randomNum: function() {
@@ -44,6 +50,21 @@ var Game = {
      //make computerList light up
     Game.playBack(Game.computerList);
 
+  },
+
+    mouseDown: function() {
+    Game.$colors.on('mousedown', function(){
+      var colorName = $(this).attr('id');
+      Game.turnOn(colorName);
+    });
+  },
+
+  mouseUp: function() {
+    Game.$colors.on('mouseup', function(){
+      var colorName = $(this).attr('id');
+      Game.turnOff(colorName);
+      Game.decide(colorName);
+    });
   },
 
   touchDown: function() {
@@ -189,22 +210,5 @@ Game.init();
 
 
 
-
-
-  // mouseDown: function() {
-  //   Game.$colors.on('mousedown', function(){
-  //     var colorName = $(this).attr('id');
-  //     Game.turnOn(colorName);
-  //   });
-  // },
-
-  // mouseUp: function() {
-  //   Game.$colors.on('mouseup', function(){
-  //     var colorName = $(this).attr('id');
-  //     Game.turnOff(colorName);
-  //     Game.userList.push(colorName);
-  //     console.log(Game.userList);
-  //   });
-  // },
 
 
