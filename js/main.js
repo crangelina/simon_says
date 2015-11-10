@@ -164,51 +164,5 @@ Game.init();
 //      PERSONAL NOTES
 //---------------------------------------
 
-//UNBIND
-// example $( "#foo" ).unbind( "click" );
-
-//telling user if they are correct/gameover
-  //use similar style as code school???
-
-//?????way to tell user how many colors they need to pick?????
-  //concerned that because waiting until userList.length = computerList.length...
-  //to decide that user will sit there waiting forever thinking they entered enough??
-    //can i match userList and computerList while the user is clicking colors?
-      //match while user is inputting and when either userList.length = computerList.length...
-      //or if they add wrong color then notify user???
-
-//simon button only a start button??
-  //as soon as userList.length = computerList.length have computer "go"
-
-
-//so when i click a color or the computer chooses a color it’s just pushing a string color name to the computer 
-//and user arrays. so when i compare the arrays it’s just comparing the strings. BUT when i want to light up what’s 
-//in the computer’s array to show the user i somehow take that string name and make it correlate to the actual object?
-//this is done with the data attributes or id name
-
-
-
-
-//JONOS COMMENTS ------------------------- 
-
-//when not being used make opacity 60-70%
-  //func lightUp takes color and changes opacity when user or computer clicks color
-
-//toggle func with delay for when computer is playing colors
-  //loop through list
-  //light up square for second
-  //turn it off
-  //light up next one for a second
-  //etc
-    //do setInterval()
-      //runs it until you turn it off at that interval
-      //after func increment to 1
-      //turn off the lsat one by doing like index -1 
-      //LOOK IT UP
-      //tell timer to stop running at end of array length
-      //practice in js fiddle first
-
-
-
 
 
