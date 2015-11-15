@@ -7,16 +7,19 @@ var Game = {
 
   setColorList: ['red', 'blue', 'yellow', 'green'],
   computerList: [],
+  correctCounter: 0,
 
   init: function() {
-    this.$colors  = $('.color');
-    this.$red     = $('#red');
-    this.$blue    = $('#blue');
-    this.$yellow  = $('#yellow');
-    this.$green   = $('#green');
-    this.$gameOver= $('#gameOver');
-    this.$startButton= $('#startButton');
-    this.clickCounter= 0;
+    this.$colors   = $('.color');
+    this.$red      = $('#red');
+    this.$blue     = $('#blue');
+    this.$yellow   = $('#yellow');
+    this.$green    = $('#green');
+    this.$gameOver = $('#gameOver');
+    this.$numberCorrect = $('h3 span');
+    this.$startButton   = $('#startButton');
+    this.clickCounter   = 0;
+    this.correctCounter = 0;
 
     this.$startButton.on('click', Game.start);
   },
@@ -29,6 +32,8 @@ var Game = {
     Game.$startButton.prop('disabled', true);
     Game.clickCounter= 0;
     Game.computerList= [];
+    Game.correctCounter = 0;
+    Game.$numberCorrect.text(" " + Game.correctCounter);
     Game.simon();
 
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -94,6 +99,7 @@ var Game = {
           Game.clickCounter = 0;
           Game.started = false; 
           Game.$startButton.prop('disabled', false);
+          Game.correctCounter--;
           
           Game.gameOver();
           
@@ -101,7 +107,10 @@ var Game = {
       }
       //end of user turn
     } if (Game.clickCounter === Game.computerList.length) {
+      var finalCount = Game.computerList.length;
       Game.clickCounter = 0;
+      Game.correctCounter++;
+      Game.$numberCorrect.text(" " + Game.correctCounter);
       Game.simon();
     }
   },
